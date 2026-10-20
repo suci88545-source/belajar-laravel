@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Surat Masuk</title>
-</head>
-<body>
+@extends('layout.app')
 
+@section('title', 'Surat Masuk')
+
+@section('content')
     <h1>Halaman ini menampilkan data surat masuk</h1>
     <table border="1" cellpadding = "10">
         <thead>
@@ -34,6 +30,4 @@
     @endforeach
 </tbody>
 </table>
-
-</body>
-</html>
+@endsection
