@@ -1,26 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
 </head>
-    <body>
-        <header>
-<h2>Sistem Informasi surat</h2>
-<nav>
-    <a href="{{ route('dashboard') }}">Dashboard</a> |
-    <a href="{{ route('surat-masuk.index') }}">Surat masuk</a> |  
-    <a href="{{ route('surat-keluar.index') }}">Surat keluar</a> |
+<body>
 
-</nav>
-        </header>
-<main>
-    @yield('content')
-</main>
+    <header>
+        <h2> Sistem Informasi Surat</h2>
+        <nav>
+            <a href="{{route('dashboard')}}">dashboard</a>
+            <a href="{{route('surat-masuk.index')}}">surat masuk</a>
+            <a href="{{route('surat-keluar.index')}}">surat keluar</a>
+            @auth
+                <span>Masuk sebagai: {{ auth()->user()->name }} ({{ auth()->user()->role }})</span>
+                <form method="POST" action="{{ route('logout') }}" style="display:inline">
+                    @csrf
+                    <button type="submit">Keluar</button>
+                </form>
+            @endauth
+        </nav>
+    </header>
 
-<footer>
-    <p>Sistem Informasi Surat</p>
-</footer>
-    </body>
-    </html>
+    <main>
+        @if (session('success'))
+            <p role="status">{{ session('success') }}</p>
+        @endif
+        @yield('content')
+    </main>
+
+    <footer>
+        <p>Sistem Informasi Surat</p>
+    </footer>
+
+</body>
+</html>
