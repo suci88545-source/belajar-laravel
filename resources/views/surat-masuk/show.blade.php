@@ -1,8 +1,6 @@
 
 @extends('layout.app')
-
 @section('title', 'Detail Surat Masuk')
-
 @section('content')
     <h1>Detail Surat Masuk</h1>
 
@@ -32,6 +30,6 @@
     </p>
 
     <a href="{{ route('surat-masuk.index') }}">
-        Kembali ke daftar
+        Kembali
     </a>
 @endsection
